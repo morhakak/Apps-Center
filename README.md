@@ -6,10 +6,7 @@
    - [4. Calculator](#4-calculator)
    - [5. Currency Converter](#5-currency-converter)
    - [6. ToDo List](#6-todo-list)
-3. [Features](#features)
-   - [Saving Tasks to JSON](#saving-tasks-to-json)
-   - [Loading Tasks from JSON](#loading-tasks-from-json)
-4. [Getting Started](#getting-started)
+3. [Getting Started](#getting-started)
 
 ## Overview
 
