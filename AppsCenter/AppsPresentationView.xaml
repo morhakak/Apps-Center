@@ -1,0 +1,138 @@
+﻿<Window x:Class="AppsCenter.AppsPresentationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppsCenter"
+        mc:Ignorable="d"
+        Title="App Presentation" Height="800" Width="1400"
+        WindowStartupLocation="CenterOwner"
+        Background="#A9D6E5"
+        ResizeMode="NoResize" 
+        WindowStyle="None"
+        
+       >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="/Images/user-icon.png" Panel.ZIndex="2" Width="30" Margin="0,0,50,0" OpacityMask="#FF4C4C4C"/>
+        <Label 
+            x:Name="user"
+            Content="Mor Hakak"
+            FontWeight="Bold" 
+            FontSize="20" 
+            Panel.ZIndex="2" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" 
+            Margin="100,0,0,0" 
+            MouseLeftButtonUp="GoBack"
+            MouseEnter="Mouse_Enter"
+            MouseLeave="Mouse_Leave"
+            />
+        <Label 
+            x:Name="appTitle"
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
+            VerticalContentAlignment="Center"
+            Content="Apps center" 
+            HorizontalContentAlignment="Center" 
+            Background="#FF19747E"
+            Foreground="#D1E8E2"
+            FontWeight="Bold"
+            FontSize="60"
+        />
+
+        <Label
+            x:Name="date" 
+            Content=""
+            Grid.Row="0" 
+            Grid.Column="2"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            FontSize="20"
+            />
+
+        <Grid Grid.Row="2" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image
+                Grid.Column="1"
+                Grid.Row="0"
+                x:Name="appImage"
+                Margin="10"
+                Width="200"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center" 
+                MouseLeftButtonUp="OpenApp" 
+                MouseEnter="Mouse_Enter" 
+                MouseLeave="Mouse_Leave"
+                />
+            <StackPanel 
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <TextBlock
+                x:Name="appDescription"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="20"
+                TextWrapping="Wrap"
+                Foreground="#19747E"
+                />
+                <TextBlock
+                x:Name="technologies"
+                FontSize="20"
+                FontWeight="Bold"
+                TextWrapping="Wrap"
+                Foreground="#19747E"
+                    />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <Label FontSize="30" 
+                           VerticalAlignment="Top" 
+                           HorizontalAlignment="Center" 
+                           MouseLeftButtonUp="GoBack"
+                           Content="Go Back" 
+                           MouseEnter="Mouse_Enter"
+                           MouseLeave="Mouse_Leave"/>
+                <Image Source="./images/back-button.png" Width="40" Margin="0,0,20,0"/>
+
+                <Label FontSize="30" 
+                           VerticalAlignment="Top" 
+                           HorizontalAlignment="Center" 
+                           Margin="20,0,0,0" 
+                           MouseEnter="Mouse_Enter"
+                           MouseLeave="Mouse_Leave"
+                           Content="Start"
+                           MouseLeftButtonUp="OpenApp"/>
+                <Image Source="./images/video-play.png" Width="43"/>
+            </StackPanel>
+        </Grid>
+        <Label x:Name="Footer"
+               Grid.Column="0"
+               Grid.Row="3"
+               Grid.ColumnSpan="3"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontWeight="Bold"
+               FontSize="23" Width="1409" Background="#FF19747E"
+        />
+    </Grid>
+</Window>

@@ -1,0 +1,205 @@
+﻿using CarGame;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
+
+namespace AppsCenter.Apps.CarGameApp;
+
+public partial class CarGameView : Window
+{
+    private readonly PlayerCar _playerCar;
+    private readonly List<Obstacle> _obstacles;
+    private readonly Random _random;
+    private int _carSpeed = 15;
+    private int _score = 0;
+    private DispatcherTimer? _timer;
+
+    public CarGameView()
+    {
+        InitializeComponent();
+
+        BackgroundVideo.Source = new Uri(@"C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\Videos\CarVideo.mp4", UriKind.Relative);
+
+        _playerCar = new PlayerCar(200, 300, _carSpeed, playerCarImage);
+        _obstacles = new List<Obstacle>();
+        _random = new Random();
+
+        Activated += StartGame;
+        Closing += OnWindowClosing;
+        Closed += OnWindowClosed;
+        Loaded += OnWindowLoaded;
+
+        score.Text = $"Score: {_score}";
+    }
+
+    private void OnWindowLoaded(object sender, RoutedEventArgs e)
+    {
+        BackgroundVideo.Play();
+    }
+
+    private void OnWindowClosing(object? sender, CancelEventArgs e)
+    {
+        _timer?.Stop();
+        BackgroundVideo.Stop();
+    }
+
+    private void StartGame(object? sender, EventArgs e)
+    {
+        _timer = new() { Interval = TimeSpan.FromMilliseconds(20) };
+        _timer.Tick += GameLoop;
+        _timer.Tick += VisibilityCheckTimer_Tick;
+        _timer.Start();
+    }
+
+    private void OnWindowClosed(object? sender, EventArgs e)
+    {
+        StopGameTimer();
+    }
+
+    private void VisibilityCheckTimer_Tick(object sender, EventArgs e)
+    {
+        CheckImageVisibility();
+    }
+
+    private void CheckImageVisibility()
+    {
+        List<Image> imagesToRemove = new List<Image>();
+
+        foreach (UIElement imageElement in gameCanvas.Children)
+        {
+            if (imageElement is Image image && image != playerCarImage)
+            {
+                Point imagePosition = image.TranslatePoint(new Point(0, 0), gameCanvas);
+
+                if (!IsImageVisible(imagePosition, image.Width, image.Height))
+                {
+                    _score++;
+                    score.Text = $"Score: {_score}";
+
+                    imagesToRemove.Add(image);
+                }
+            }
+        }
+
+        foreach (Image imageToRemove in imagesToRemove)
+        {
+            gameCanvas.Children.Remove(imageToRemove);
+        }
+    }
+
+    private bool IsImageVisible(Point position, double width, double height)
+    {
+        double windowWidth = ActualWidth;
+        double windowHeight = ActualHeight;
+
+        return position.X + width > 0 && position.X < windowWidth &&
+               position.Y + height > 0 && position.Y < windowHeight;
+    }
+
+    protected override void OnPreviewKeyDown(KeyEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case Key.Left:
+                _playerCar.LeftKeyPressed = true;
+                break;
+            case Key.Right:
+                _playerCar.RightKeyPressed = true;
+                break;
+        }
+    }
+
+    protected override void OnPreviewKeyUp(KeyEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case Key.Left:
+                _playerCar.LeftKeyPressed = false;
+                break;
+            case Key.Right:
+                _playerCar.RightKeyPressed = false;
+                break;
+        }
+    }
+
+    private void GameLoop(object sender, EventArgs e)
+    {
+        _playerCar.Move();
+
+        GenerateObstacles();
+
+        foreach (Obstacle obstacle in _obstacles)
+        {
+            obstacle.Move();
+
+            double collisionBuffer = 5;
+            if (IsCarHitAnObstacle(collisionBuffer, obstacle))
+            {
+                BackgroundVideo.Stop();
+                EndGame();
+                break;
+            }
+        }
+    }
+
+    private void EndGame()
+    {
+        StopGameTimer();
+        ShowScore();
+        Close();
+    }
+
+    private bool IsCarHitAnObstacle(double collisionBuffer, Obstacle obstacle)
+    {
+        return _playerCar.Representation.Margin.Left + _playerCar.Representation.Width - collisionBuffer >= obstacle.Representation.Margin.Left + collisionBuffer
+                            && _playerCar.Representation.Margin.Left + collisionBuffer <= obstacle.Representation.Margin.Left + obstacle.Representation.Width - collisionBuffer
+                            && _playerCar.Representation.Margin.Top + collisionBuffer <= obstacle.Representation.Margin.Top + obstacle.Representation.Height - collisionBuffer
+                            && _playerCar.Representation.Margin.Top + _playerCar.Representation.Height - collisionBuffer >= obstacle.Representation.Margin.Top + collisionBuffer;
+    }
+
+    private void GenerateObstacles()
+    {
+        if (_random.Next(0, 50) == 1)
+        {
+            Image obstacleImage = new()
+            {
+                Source = new BitmapImage(new Uri(@"C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\Images\obstacle.png")),
+                Width = 50,
+                Height = 50
+            };
+
+            Obstacle obstacle = new(_random.Next(0, (int)Width), 0, 2, obstacleImage);
+            _obstacles.Add(obstacle);
+            gameCanvas.Children.Add(obstacleImage);
+        }
+    }
+
+    private void ShowScore()
+    {
+        string baseMsg = $"You got {_score} points,";
+        string message = _score switch
+        {
+            < 10 => "try better next time!",
+            <= 50 => "nice score!",
+            _ => "you are the champ!!!"
+        };
+
+        MessageBox.Show($"{baseMsg} {message}", "Game Over!", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+    }
+
+    private void StopGameTimer()
+    {
+        _timer?.Stop();
+    }
+
+    private void BackgroundVideo_MediaEnded(object sender, RoutedEventArgs e)
+    {
+        BackgroundVideo.Position = TimeSpan.Zero;
+        BackgroundVideo.Play();
+    }
+}

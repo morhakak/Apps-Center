@@ -1,0 +1,41 @@
+﻿<Window x:Class="AppsCenter.Apps.CurrencyConverter.CurrencyConverterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppsCenter.Apps.CurrencyConverter"
+        mc:Ignorable="d"
+        Title="Currency Converter" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="0.75*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+            <Label Content="Amount:" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+            <TextBox Name="AmountTextBox" FontWeight="Bold" FontSize="20" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0" />
+        </StackPanel>
+        <Image Grid.Column="1" Source="/Images/salary.png" Height="50" Width="30" Margin="0,0,0,30" HorizontalAlignment="Center"/>
+        <Image Grid.Column="1" Source="/Images/down-arrow.png" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,0,0"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" >
+            <Label  Content="From Currency:" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+            <ComboBox Name="FromCurrencyComboBox" Width="150" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" MaxDropDownHeight="180"/>
+        </StackPanel>
+        <Image Grid.Row="1" Grid.Column="1" Source="/Images/exchanging.png" Width="30" Height="50" VerticalAlignment="Top" Margin="0,45,0,0" />
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Label Content="To Currency:" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+            <ComboBox Name="ToCurrencyComboBox" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0" MaxDropDownHeight="180"/>
+        </StackPanel>
+        <Button Name="btnConvert" FontWeight="Bold" FontSize="16" Grid.Row="1" Grid.Column="3" Width="100" Height="30" Margin="5,45,0,0" Content="Convert" VerticalAlignment="Top" HorizontalAlignment="Left"  Click="BtnConvert_Click" />
+        <TextBlock Grid.Row="1" Grid.Column="4" Name="txtResult" Width="280" Height="30" Margin="5,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontWeight="Bold" FontSize="20"/>
+    </Grid>
+</Window>

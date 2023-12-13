@@ -1,0 +1,15 @@
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Videos\CarVideo.mp4
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.exe
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.deps.json
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.runtimeconfig.json
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.pdb
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Configuration.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Configuration.UserSecrets.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Primitives.dll

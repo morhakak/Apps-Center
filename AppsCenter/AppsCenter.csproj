@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UserSecretsId>b34cb3a0-4918-43d1-8ebf-461dd07222c2</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\RetroGaming.ttf" />
+    <None Remove="Images\back-button.png" />
+    <None Remove="Images\Calculator.jpg" />
+    <None Remove="Images\calculatorIcon.png" />
+    <None Remove="Images\carImage.png" />
+    <None Remove="Images\currency exchange.png" />
+    <None Remove="Images\currencyExchange.jpg" />
+    <None Remove="Images\down-arrow.png" />
+    <None Remove="Images\exchanging.png" />
+    <None Remove="Images\login.png" />
+    <None Remove="Images\obstacle.png" />
+    <None Remove="Images\on-off-button.png" />
+    <None Remove="Images\salary.png" />
+    <None Remove="Images\speed.png" />
+    <None Remove="Images\tic-tac-toe.png" />
+    <None Remove="Images\todo list.png" />
+    <None Remove="Images\ToDoList.jpg" />
+    <None Remove="Images\user-icon.png" />
+    <None Remove="Images\userManagementIcon.png" />
+    <None Remove="Images\video-play.png" />
+    <None Remove="Videos\CarVideo.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\RetroGaming.ttf" />
+    <Resource Include="Images\back-button.png" />
+    <Resource Include="Images\calculatorIcon.png" />
+    <Resource Include="Images\carImage.png" />
+    <Resource Include="Images\currency exchange.png" />
+    <Resource Include="Images\currencyExchange.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Calculator.jpg" />
+    <Resource Include="Images\down-arrow.png" />
+    <Resource Include="Images\exchanging.png" />
+    <Resource Include="Images\login.png" />
+    <Resource Include="Images\obstacle.png" />
+    <Resource Include="Images\on-off-button.png" />
+    <Resource Include="Images\salary.png" />
+    <Resource Include="Images\speed.png" />
+    <Resource Include="Images\tic-tac-toe.png" />
+    <Resource Include="Images\todo list.png" />
+    <Resource Include="Images\ToDoList.jpg" />
+    <Resource Include="Images\userManagementIcon.png" />
+    <Resource Include="Images\user-icon.png" />
+    <Resource Include="Images\video-play.png" />
+    <Content Include="Videos\CarVideo.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Apps\CurrencyConverter\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+  </ItemGroup>
+
+</Project>

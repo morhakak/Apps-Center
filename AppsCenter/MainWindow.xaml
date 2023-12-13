@@ -1,0 +1,100 @@
+﻿<Window x:Class="AppsCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Apps Center" Height="800" Width="1400"
+        WindowStartupLocation="CenterScreen" Background="#A9D6E5" WindowStyle="None" ResizeMode="NoResize"
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/AppsCenterStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="/Images/user-icon.png" Panel.ZIndex="2" Width="30" Margin="0,0,50,0" OpacityMask="#FF4C4C4C"/>
+        <Label 
+            x:Name="user"
+            Content="Mor Hakak"
+            FontWeight="Bold" 
+            FontSize="20" 
+            Panel.ZIndex="2" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" Margin="100,0,0,0"/>
+        <Label x:Name="appTitle"
+               Grid.Column="0"
+               Grid.Row="0"
+               Grid.ColumnSpan="3"
+               VerticalContentAlignment="Center"
+               Content="Apps center" 
+               HorizontalContentAlignment="Center"
+               FontWeight="Bold"
+               FontSize="60" Width="1406" Background="#FF19747E" Foreground="#D1E8E2"
+        />
+
+        <Label
+            x:Name="date" 
+            Content=""
+            Grid.Row="0" 
+            Grid.Column="2"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            FontSize="20"
+            FontWeight="DemiBold"
+            Width="355" 
+            Background="#FF19747E" 
+            Foreground="Black"/>
+        <Image x:Name="ExistButton" 
+               Source="/Images/on-off-button.png" 
+               Width="30" 
+               Grid.Column="2" 
+               Margin="281,107,39,8" 
+               MouseLeftButtonDown="ExistButton_MouseDown" 
+               Grid.RowSpan="2"
+               MouseEnter="ExistButton_MouseEnter" MouseLeave="ExistButton_MouseLeave"/>
+        <Label 
+            x:Name="GameText"
+            Content="Please pick an app" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center"
+            FontSize="26" 
+            Foreground="#19747E"
+            FontWeight="DemiBold"
+        />
+
+        <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Image x:Name="CalcualtorImg" Source="/Images/calculatorIcon.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Opacity="1" Style="{StaticResource AppsCenterImage}" MouseUp="Calcualtor_MouseUp"/>
+            <Image x:Name="ToDoImg" Source="/Images/todo list.png"  MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Opacity="1" Style="{StaticResource AppsCenterImage}" MouseUp="ToDo_MouseUp"/>
+            <Image x:Name="CurrencyConverterImg" Source="/Images/currency exchange.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Opacity="1" Style="{StaticResource AppsCenterImage}" MouseUp="CurrencyConverter_MouseUp"/>
+            <Image x:Name="CarGameAppImg" Source="/Images/carImage.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Opacity="1" Style="{StaticResource AppsCenterImage}" MouseUp="CarGame_MouseUp" />
+            <Image x:Name="TicTacToeImg" Source="/Images/tic-tac-toe.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Opacity="1" Style="{StaticResource AppsCenterImage}" MouseLeftButtonUp="TicTacToeGame_MouseUp" />
+            <Image x:Name="UserManagementImg" Source="/Images/userManagementIcon.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Opacity="1" Style="{StaticResource AppsCenterImage}" MouseLeftButtonUp="UserManagement_MouseUp"/>
+        </WrapPanel>
+
+        <Label x:Name="Footer"
+               Grid.Column="0"
+               Grid.Row="3"
+               Grid.ColumnSpan="3"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontWeight="Bold"
+               FontSize="23" Width="1409" Background="#FF19747E"
+        />
+    </Grid>
+</Window>

@@ -1,0 +1,26 @@
+﻿<Application x:Class="AppsCenter.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AppsCenter"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="TxtBl_retro" TargetType="TextBlock">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Retro Gaming" />
+        </Style>
+
+        <Style x:Key="TxtBo_retro" TargetType="TextBox">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Retro Gaming" />
+        </Style>
+
+        <Style x:Key="Btn_retro" TargetType="Button">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Retro Gaming" />
+        </Style>
+
+        <Style x:Key="label_retro" TargetType="Label">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Retro Gaming" />
+        </Style>
+    </Application.Resources>
+
+</Application>
+    
+    
