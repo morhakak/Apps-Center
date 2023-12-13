@@ -25,7 +25,7 @@ Enjoy a game of Tic Tac Toe against an intelligent computer opponent. Test your 
 ### 3. User Management (Login Required)
 
 This app incorporates user management functionality, requiring users to log in. It adds a layer of security and personalization to your applications.
-**valid credentials -
+**Valid credentials -
 Username: mor
 Password: Abcd1234!**
 
