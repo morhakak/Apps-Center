@@ -10,8 +10,6 @@
    - [Saving Tasks to JSON](#saving-tasks-to-json)
    - [Loading Tasks from JSON](#loading-tasks-from-json)
 4. [Getting Started](#getting-started)
-5. [Contributing](#contributing)
-6. [License](#license)
 
 ## Overview
 
