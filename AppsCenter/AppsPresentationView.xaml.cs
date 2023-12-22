@@ -13,7 +13,7 @@ namespace AppsCenter;
 public partial class AppsPresentationView : Window
 {
     private Window? _appWindow;
-    //public event EventHandler? AppPresentationClosing;
+
     public AppsPresentationView()
     {
         InitializeComponent();
