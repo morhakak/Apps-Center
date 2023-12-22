@@ -61,7 +61,7 @@ namespace AppsCenter.Apps.TicTacToe {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppsCenter;V1.0.0.0;component/apps/tictactoe/tictactoeview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppsCenter;component/apps/tictactoe/tictactoeview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Apps\TicTacToe\TicTacToeView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

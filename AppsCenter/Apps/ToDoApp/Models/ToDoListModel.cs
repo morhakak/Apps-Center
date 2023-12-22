@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 
 namespace AppsCenter.Apps.ToDoApp.Models;
 
 public class ToDoListModel
 {
     public ObservableCollection<ToDoTask> ToDoTasks { get; set; }
-    private const string TodoJsonFileName = "C:\\Users\\morh\\Desktop\\C#Projects\\AppsCenter\\AppsCenter\\Apps\\ToDoApp\\todo.json";
+    static readonly string _jsonRelativePath = Path.Combine("Apps", "ToDoApp", "todo.json");
+    static readonly string _jsonFullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _jsonRelativePath);
+    private readonly JsonTaskManager _jsonTaskManager;
 
     public ToDoListModel()
     {
         ToDoTasks = new ObservableCollection<ToDoTask>();
+        _jsonTaskManager = new JsonTaskManager(_jsonFullPath);
         LoadTasksFromJson();
     }
 
@@ -33,7 +35,7 @@ public class ToDoListModel
 
         if (task != null) task.IsComplete = !task.IsComplete;
 
-        else throw new Exception("The task with this Id wasn't found");
+        else throw new TaskNotFoundException("The task with this Id wasn't found");
     }
 
     public void AddNewTask(ToDoTask task)
@@ -48,44 +50,21 @@ public class ToDoListModel
         if (task != null)
             ToDoTasks.Remove(task);
         else
-            throw new Exception("The task with this Id wasn't found");
+            throw new TaskNotFoundException($"The task with this Id wasn't found");
     }
 
     public void SaveTasksToJson()
     {
-        JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
-        jsonSerializerOptions.PropertyNameCaseInsensitive = true;
-
-        string json = JsonSerializer.Serialize(ToDoTasks, jsonSerializerOptions);
-        File.WriteAllText(TodoJsonFileName, json);
+        _jsonTaskManager.SaveTasks(new List<ToDoTask>(ToDoTasks));
     }
 
     public void LoadTasksFromJson()
     {
-        if (File.Exists(TodoJsonFileName))
-        {
-            try
-            {
-                string json = File.ReadAllText(TodoJsonFileName);
-                List<ToDoTask> loadedTasks = JsonSerializer.Deserialize<List<ToDoTask>>(json);
+        List<ToDoTask> loadedTasks = _jsonTaskManager.LoadTasks();
 
-                if (loadedTasks != null && loadedTasks.Count > 0)
-                {
-                    foreach (ToDoTask task in loadedTasks)
-                    {
-                        ToDoTasks.Add(task);
-                    }
-                }
-                else
-                {
-                    AddNewTask(new ToDoTask(1, "Do home work", false));
-                    AddNewTask(new ToDoTask(2, "Do dishes", false));
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading tasks from {TodoJsonFileName}: {ex.Message}");
-            }
+        foreach (ToDoTask task in loadedTasks)
+        {
+            ToDoTasks.Add(task);
         }
     }
 }

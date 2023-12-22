@@ -117,7 +117,7 @@ namespace AppsCenter.Apps.UserManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppsCenter;V1.0.0.0;component/apps/usermanagement/usermanagementview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppsCenter;component/apps/usermanagement/usermanagementview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Apps\UserManagement\UserManagementView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

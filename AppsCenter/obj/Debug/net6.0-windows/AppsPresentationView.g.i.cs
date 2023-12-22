@@ -109,7 +109,7 @@ namespace AppsCenter {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppsCenter;V1.0.0.0;component/appspresentationview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppsCenter;component/appspresentationview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AppsPresentationView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -47,6 +47,7 @@ public partial class Calculator : Window
         if (double.TryParse(resultLabel.Content.ToString(), out double temp))
         {
             temp /= 100;
+
             if (_lastNumber != 0)
             {
                 temp *= _lastNumber;
@@ -75,27 +76,15 @@ public partial class Calculator : Window
 
     private void NumberButton_Click(object sender, RoutedEventArgs e)
     {
-        int selectedValue = int.Parse((sender as Button)!.Content.ToString()!);
-
-        if (resultLabel.Content.ToString() == "0")
-            resultLabel.Content = selectedValue.ToString();
-        else
-            resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
-    }
-
-    private void NumberButton_Click2(object sender, RoutedEventArgs e)
-    {
         if (sender is not Button button) return;
 
         string? content = button.Content.ToString();
         if (string.IsNullOrEmpty(content)) return;
 
-        if (int.TryParse(content, out int selectedValue) is false) return;
-
-        if (resultLabel.Content.ToString() == "0")
-            resultLabel.Content = selectedValue.ToString();
-        else
-            resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
+        if (int.TryParse(content, out int selectedValue))
+        {
+            resultLabel.Content = resultLabel.Content.ToString() == "0" ? selectedValue.ToString() : $"{resultLabel.Content}{selectedValue}";
+        }
     }
 
     private void OperationButton_Click(object sender, RoutedEventArgs e)
@@ -103,17 +92,17 @@ public partial class Calculator : Window
         if (double.TryParse(resultLabel.Content.ToString(), out _lastNumber))
             resultLabel.Content = "0";
 
-        if (sender == plusButton)
-            _selectedOperator = SelectedOperator.Addition;
-        if (sender == minusButton)
-            _selectedOperator = SelectedOperator.Subtraction;
-        if (sender == divisionButton)
-            _selectedOperator = SelectedOperator.Division;
-        if (sender == multipleButton)
-            _selectedOperator = SelectedOperator.Multiplication;
+        _selectedOperator = sender switch
+        {
+            Button b when b == plusButton => SelectedOperator.Addition,
+            Button b when b == minusButton => SelectedOperator.Subtraction,
+            Button b when b == divisionButton => SelectedOperator.Division,
+            Button b when b == multipleButton => SelectedOperator.Multiplication,
+            _ => _selectedOperator
+        };
     }
 
-    private void pointButton_Click(object sender, RoutedEventArgs e)
+    private void PointButton_Click(object sender, RoutedEventArgs e)
     {
         if (!resultLabel.Content.ToString()!.Contains("."))
             resultLabel.Content = $"{resultLabel.Content}.";

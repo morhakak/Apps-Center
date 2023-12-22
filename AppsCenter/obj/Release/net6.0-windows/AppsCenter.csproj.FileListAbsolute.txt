@@ -50,3 +50,9 @@ C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\obj\Release\net6.0-window
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\obj\Release\net6.0-windows\AppsCenter.pdb
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\obj\Release\net6.0-windows\AppsCenter.genruntimeconfig.cache
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\obj\Release\net6.0-windows\ref\AppsCenter.dll
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\obj\Release\net6.0-windows\AppsCenter.sourcelink.json
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\Apps\UserManagement\Data\DefaultUsers.json
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\Apps\UserManagement\Data\Users.json
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\Images\obstacle.png
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\Apps\ToDoApp\todo.json
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\Helpers\data.json

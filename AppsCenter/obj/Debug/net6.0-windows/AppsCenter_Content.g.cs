@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/obstacle.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/todoapp/todo.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videos/carvideo.mp4")]
 
 

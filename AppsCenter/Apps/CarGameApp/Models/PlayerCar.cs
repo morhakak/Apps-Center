@@ -1,19 +1,20 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace CarGame;
 
 public class PlayerCar : GameObject
 {
-    public bool LeftKeyPressed { get; set; }
-    public bool RightKeyPressed { get; set; }
+    public bool IsLeftKeyPressed { get; set; }
+    public bool IsRightKeyPressed { get; set; }
     public PlayerCar(int x, int y, int speed, Image carImage) : base(x, y, speed, carImage) { }
 
     public override void Move()
     {
-        if (LeftKeyPressed && X > 0)
+        if (IsLeftKeyPressed && X > 0)
             X -= Speed;
 
-        if (RightKeyPressed && X < 800 - Representation.Width) // optional change Application.Current.MainWindow.Width  instead of 800
+        if (IsRightKeyPressed && X < Application.Current.MainWindow.Width - Representation.Width)
             X += Speed;
 
         Draw();

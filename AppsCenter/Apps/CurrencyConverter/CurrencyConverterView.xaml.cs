@@ -19,7 +19,7 @@ public partial class CurrencyConverterView : Window
         _exchangeRates = new Dictionary<string, double>();
     }
 
-    public async Task LoadCurrencies()
+    public async Task LoadCurrenciesAsync()
     {
         try
         {
@@ -49,6 +49,12 @@ public partial class CurrencyConverterView : Window
                 return;
             }
 
+            if (fromCurrency == null || toCurrency == null)
+            {
+                MessageBox.Show("Please select both 'From' and 'To' currencies!", "Invalid Currencies", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
             double? convertedAmount = ConvertCurrency(fromCurrency, toCurrency, amount);
 
             if (convertedAmount.HasValue)
@@ -69,10 +75,14 @@ public partial class CurrencyConverterView : Window
 
     private double? ConvertCurrency(string? fromCurrency, string? toCurrency, double amount)
     {
-        bool currenciesNull = fromCurrency == null || toCurrency == null;
-        bool currenciesKeysExists = _exchangeRates.ContainsKey(fromCurrency) && _exchangeRates.ContainsKey(toCurrency);
+        if (_exchangeRates == null || fromCurrency == null || toCurrency == null)
+        {
+            return null;
+        }
 
-        if (!currenciesNull && currenciesKeysExists)
+        bool currenciesKeysExist = _exchangeRates.ContainsKey(fromCurrency) && _exchangeRates.ContainsKey(toCurrency);
+
+        if (currenciesKeysExist)
         {
             double fromCurrencyValue = _exchangeRates[fromCurrency];
             double toCurrencyValue = _exchangeRates[toCurrency];

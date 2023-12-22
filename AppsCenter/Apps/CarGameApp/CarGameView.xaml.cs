@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,12 +19,14 @@ public partial class CarGameView : Window
     private int _carSpeed = 15;
     private int _score = 0;
     private DispatcherTimer? _timer;
+    private readonly string videoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Videos", "CarVideo.mp4");
+    private readonly string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "obstacle.png");
 
     public CarGameView()
     {
         InitializeComponent();
 
-        BackgroundVideo.Source = new Uri(@"C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\Videos\CarVideo.mp4", UriKind.Relative);
+        BackgroundVideo.Source = new Uri(videoPath, UriKind.Relative);
 
         _playerCar = new PlayerCar(200, 300, _carSpeed, playerCarImage);
         _obstacles = new List<Obstacle>();
@@ -106,10 +109,10 @@ public partial class CarGameView : Window
         switch (e.Key)
         {
             case Key.Left:
-                _playerCar.LeftKeyPressed = true;
+                _playerCar.IsLeftKeyPressed = true;
                 break;
             case Key.Right:
-                _playerCar.RightKeyPressed = true;
+                _playerCar.IsRightKeyPressed = true;
                 break;
         }
     }
@@ -119,10 +122,10 @@ public partial class CarGameView : Window
         switch (e.Key)
         {
             case Key.Left:
-                _playerCar.LeftKeyPressed = false;
+                _playerCar.IsLeftKeyPressed = false;
                 break;
             case Key.Right:
-                _playerCar.RightKeyPressed = false;
+                _playerCar.IsRightKeyPressed = false;
                 break;
         }
     }
@@ -168,7 +171,7 @@ public partial class CarGameView : Window
         {
             Image obstacleImage = new()
             {
-                Source = new BitmapImage(new Uri(@"C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\Images\obstacle.png")),
+                Source = new BitmapImage(new Uri(imagePath)),
                 Width = 50,
                 Height = 50
             };

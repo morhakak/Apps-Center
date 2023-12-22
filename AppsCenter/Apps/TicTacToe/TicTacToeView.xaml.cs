@@ -124,9 +124,14 @@ public partial class TicTacToeView : Window
         MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo);
 
         if (result == MessageBoxResult.Yes)
+        {
             ResetGameBoard();
-        else
+        }
+        else if (result == MessageBoxResult.No)
+        {
+            MessageBox.Show("Thanks for playing! Goodbye!");
             Close();
+        }
     }
 }
 

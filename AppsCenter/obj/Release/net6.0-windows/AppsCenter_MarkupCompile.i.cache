@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\App.xaml
-12-280461235
+11-310654286
 11971573902
-291873919072
+281020611392
 2031003603803
-AppsPresentationView.xaml;Apps\CalculatorApp\Calculator.xaml;Apps\CarGameApp\CarGameView.xaml;Apps\CarGameApp\InputDialog.xaml;Apps\CurrencyConverter\CurrencyConverterView.xaml;Apps\TicTacToe\TicTacToeView.xaml;Apps\ToDoApp\ToDoList.xaml;Apps\UserManagement\LoginView.xaml;Apps\UserManagement\UserManagementView.xaml;MainWindow.xaml;Styles\AppsCenterStyles.xaml;Styles\CalculatorStyles.xaml;
+AppsPresentationView.xaml;Apps\CalculatorApp\Calculator.xaml;Apps\CarGameApp\CarGameView.xaml;Apps\CurrencyConverter\CurrencyConverterView.xaml;Apps\TicTacToe\TicTacToeView.xaml;Apps\ToDoApp\ToDoList.xaml;Apps\UserManagement\LoginView.xaml;Apps\UserManagement\UserManagementView.xaml;MainWindow.xaml;Styles\AppsCenterStyles.xaml;Styles\CalculatorStyles.xaml;
 
-False
+True
 

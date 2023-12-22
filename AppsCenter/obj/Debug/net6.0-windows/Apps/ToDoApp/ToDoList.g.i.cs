@@ -69,7 +69,7 @@ namespace AppsCenter.Apps.ToDoApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppsCenter;V1.0.0.0;component/apps/todoapp/todolist.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppsCenter;component/apps/todoapp/todolist.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Apps\ToDoApp\ToDoList.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

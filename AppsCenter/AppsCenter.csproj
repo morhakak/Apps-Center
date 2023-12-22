@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Apps\ToDoApp\todo.json" />
     <None Remove="Fonts\RetroGaming.ttf" />
     <None Remove="Images\back-button.png" />
     <None Remove="Images\Calculator.jpg" />
@@ -46,7 +47,9 @@
     <Resource Include="Images\down-arrow.png" />
     <Resource Include="Images\exchanging.png" />
     <Resource Include="Images\login.png" />
-    <Resource Include="Images\obstacle.png" />
+    <Content Include="Images\obstacle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\on-off-button.png" />
     <Resource Include="Images\salary.png" />
     <Resource Include="Images\speed.png" />
@@ -56,6 +59,9 @@
     <Resource Include="Images\userManagementIcon.png" />
     <Resource Include="Images\user-icon.png" />
     <Resource Include="Images\video-play.png" />
+    <Content Include="Apps\ToDoApp\todo.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Videos\CarVideo.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -67,6 +73,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Apps\UserManagement\Data\DefaultUsers.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Apps\UserManagement\Data\Users.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Helpers\data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

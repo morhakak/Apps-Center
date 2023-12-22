@@ -20,22 +20,29 @@ public class CurrencyService
         if (string.IsNullOrEmpty(apiKey))
             throw new InvalidOperationException("API key is missing or invalid.");
 
-        string request = $"{_baseApiEndPoint}?access_key={apiKey}";
-
-        using var client = new HttpClient();
-
-        var response = await client.GetStringAsync(request);
-
-        var options = new JsonSerializerOptions
+        try
         {
-            PropertyNameCaseInsensitive = true
-        };
+            string request = $"{_baseApiEndPoint}?access_key={apiKey}";
 
-        var exchange = JsonSerializer.Deserialize<ExchangeResponse>(response, options);
+            using var client = new HttpClient();
 
-        if (exchange == null || exchange.Rates == null)
-            throw new InvalidOperationException("Failed to fetch exchange rates");
+            var response = await client.GetStringAsync(request);
 
-        return exchange.Rates;
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            var exchange = JsonSerializer.Deserialize<ExchangeResponse>(response, options);
+
+            if (exchange == null || exchange.Rates == null)
+                throw new InvalidOperationException("Failed to fetch exchange rates" + response);
+
+            return exchange.Rates;
+        }
+        catch (HttpRequestException ex)
+        {
+            throw new InvalidOperationException("Failed to fetch exchange rates. See logs for details.", ex);
+        }
     }
 }

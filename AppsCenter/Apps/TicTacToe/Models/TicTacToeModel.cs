@@ -4,22 +4,21 @@ public class TicTacToeModel
 {
     public char[,] GameBoard { get; set; }
     public char CurrentPlayer { get; set; }
+    private const char PlayerX = 'X';
+    private const char PlayerO = 'O';
 
     public TicTacToeModel()
     {
         GameBoard = new char[3, 3];
-        CurrentPlayer = 'X';
+        CurrentPlayer = PlayerX;
     }
 
     public bool IsBoardFull()
     {
-        for (int i = 0; i < 3; i++)
+        foreach (char cell in GameBoard)
         {
-            for (int j = 0; j < 3; j++)
-            {
-                if (GameBoard[i, j] == 0)
-                    return false;
-            }
+            if (cell == 0)
+                return false;
         }
 
         return true;
@@ -55,6 +54,6 @@ public class TicTacToeModel
 
     public void ToggleCurrentPlayer()
     {
-        CurrentPlayer = CurrentPlayer == 'X' ? 'O' : 'X';
+        CurrentPlayer = (CurrentPlayer == PlayerX) ? PlayerO : PlayerX;
     }
 }

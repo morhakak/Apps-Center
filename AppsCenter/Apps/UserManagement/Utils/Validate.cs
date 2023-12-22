@@ -7,57 +7,74 @@ namespace AppsCenter.Apps.UserManagement.Utils;
 
 public class Validate
 {
-    public static bool UserName(TextBox box)
+    private static readonly SolidColorBrush RedBrush = new(Colors.Red);
+    private static readonly SolidColorBrush BlackBrush = new(Colors.Black);
+
+    public static bool UserName(TextBox textBox)
     {
         Regex regex = new(@"^[A-Za-z].{2,20}");
-        Match match = regex.Match(box.Text);
+        Match match = regex.Match(textBox.Text);
 
         if (!match.Success)
         {
-            MessageBox.Show("Username: Please enter at least 3 characters");
-            box.BorderBrush = new SolidColorBrush(Colors.Red);
+            ShowErrorMessage("Username: Please enter at least 3 characters");
+            SetErrorStyle(textBox);
 
             return false;
         }
 
-        box.BorderBrush = new SolidColorBrush(Colors.Black);
+        ResetStyle(textBox);
 
         return true;
     }
 
-    public static bool UserPassword(TextBox box)
+    public static bool UserPassword(PasswordBox passwordbBox)
     {
         Regex regex = new(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$");
-        Match match = regex.Match(box.Text);
+        Match match = regex.Match(passwordbBox.Password);
 
         if (!match.Success)
         {
-            MessageBox.Show("Password: \n- Minimum length of 8 characters\n- At least one digit\n- At least one lowercase letter\n- At least one capital letter. ");
-            box.BorderBrush = new SolidColorBrush(Colors.Red);
+            ShowErrorMessage("Password: \n- Minimum length of 8 characters\n- At least one digit\n- At least one lowercase letter\n- At least one capital letter.");
+            SetErrorStyle(passwordbBox);
 
             return false;
         }
 
-        box.BorderBrush = new SolidColorBrush(Colors.Black);
+        ResetStyle(passwordbBox);
 
         return true;
     }
 
-    public static bool Email(TextBox box)
+    public static bool Email(TextBox textBox)
     {
         Regex regex = new(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-        Match match = regex.Match(box.Text);
+        Match match = regex.Match(textBox.Text);
 
         if (!match.Success)
         {
-            MessageBox.Show("please enter a valid email");
-            box.BorderBrush = new SolidColorBrush(Colors.Red);
+            ShowErrorMessage("Please enter a valid email");
+            SetErrorStyle(textBox);
 
             return false;
         }
 
-        box.BorderBrush = new SolidColorBrush(Colors.Black);
-
+        ResetStyle(textBox);
         return true;
+    }
+
+    private static void ShowErrorMessage(string message)
+    {
+        MessageBox.Show(message);
+    }
+
+    private static void SetErrorStyle(Control control)
+    {
+        control.BorderBrush = RedBrush;
+    }
+
+    private static void ResetStyle(Control control)
+    {
+        control.BorderBrush = BlackBrush;
     }
 }

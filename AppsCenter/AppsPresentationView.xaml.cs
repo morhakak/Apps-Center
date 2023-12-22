@@ -13,7 +13,7 @@ namespace AppsCenter;
 public partial class AppsPresentationView : Window
 {
     private Window? _appWindow;
-    public event EventHandler? AppPresentationClosing;
+    //public event EventHandler? AppPresentationClosing;
     public AppsPresentationView()
     {
         InitializeComponent();
@@ -49,7 +49,7 @@ public partial class AppsPresentationView : Window
             {
                 CurrencyConverterView currencyConverter = new();
                 currencyConverter = (CurrencyConverterView)_appWindow;
-                await currencyConverter.LoadCurrencies();
+                await currencyConverter.LoadCurrenciesAsync();
                 _appWindow.Show();
                 Close();
             }

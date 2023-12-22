@@ -136,7 +136,7 @@
                 Grid.ColumnSpan="2"/>
         <Button x:Name="pointButton" 
                 Style="{StaticResource numberButtonsStyle}"
-                Click="pointButton_Click"
+                Click="PointButton_Click"
                 Content="."
                 Grid.Row="5"
                 Grid.Column="2"/>

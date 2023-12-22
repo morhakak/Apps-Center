@@ -1,5 +1,6 @@
 ﻿using AppsCenter.Apps.UserManagement.Models;
 using AppsCenter.Apps.UserManagement.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -30,8 +31,7 @@ public partial class UserManagementView : Window
 
     private void UpdateJsonData()
     {
-        List<User> tempList = _users;
-        _users = DataHandler.UpdateList(tempList);
+        _users = DataHandler.UpdateList(_users);
     }
 
     private void Btn_Add_Click(object sender, RoutedEventArgs e)
@@ -52,18 +52,27 @@ public partial class UserManagementView : Window
 
     private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        DataGridCellInfo idCell = DataGrid1.SelectedCells[0];
-        DataGridCellInfo nameCell = DataGrid1.SelectedCells[1];
-        DataGridCellInfo emailCell = DataGrid1.SelectedCells[2];
-
-        try
+        if (DataGrid1.SelectedCells.Count > 0)
         {
-            string id = ((TextBlock)idCell.Column.GetCellContent(idCell.Item)).Text;
-            Input_UserName.Text = ((TextBlock)nameCell.Column.GetCellContent(nameCell.Item)).Text;
-            Input_Email.Text = ((TextBlock)emailCell.Column.GetCellContent(emailCell.Item)).Text;
-            _user = _users.Single(item => item.Id.ToString() == id);
+            DataGridCellInfo idCell = DataGrid1.SelectedCells[0];
+            DataGridCellInfo nameCell = DataGrid1.SelectedCells[1];
+            DataGridCellInfo emailCell = DataGrid1.SelectedCells[2];
+
+            if (idCell.Column != null)
+            {
+                try
+                {
+                    string id = ((TextBlock)idCell.Column.GetCellContent(idCell.Item)).Text;
+                    Input_UserName.Text = ((TextBlock)nameCell.Column.GetCellContent(nameCell.Item)).Text;
+                    Input_Email.Text = ((TextBlock)emailCell.Column.GetCellContent(emailCell.Item)).Text;
+                    _user = _users.Single(item => item.Id.ToString() == id);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error in DataGrid1_SelectionChanged: {ex.Message}");
+                }
+            }
         }
-        catch { }
     }
 
     private void Btn_Remove_Click(object sender, RoutedEventArgs e)
@@ -81,15 +90,16 @@ public partial class UserManagementView : Window
         var isValidUserName = Validate.UserName(Input_UserName);
         var isValidEmail = Validate.Email(Input_Email);
 
-        if ((isValidUserName && isValidEmail) is false) return;
+        if (!isValidUserName || !isValidEmail || _user == null) return;
 
-        _user!.Name = Input_UserName.Text;
+        _user.Name = Input_UserName.Text;
         _user.Email = Input_Email.Text;
         UpdateDataGrid();
         UpdateJsonData();
 
         ClearInputs();
     }
+
     private void ClearInputs()
     {
         Input_UserName.Text = string.Empty;

@@ -2,13 +2,19 @@
 using AppsCenter.Apps.UserManagement.Utils;
 using Microsoft.Extensions.Configuration;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace AppsCenter.Apps.UserManagement;
 
 public partial class LoginView : Window
 {
     private UserManagementView? _userManagementView;
-    private readonly IConfiguration _configuration = new ConfigurationBuilder().AddUserSecrets<CurrencyService>().Build();
+    private const string LoginUserNameKey = "loginUserName";
+    private const string LoginPasswordKey = "loginPassword";
+    private readonly IConfiguration _configuration = new ConfigurationBuilder()
+     .AddUserSecrets<CurrencyService>()
+     .Build();
+
     public LoginView()
     {
         InitializeComponent();
@@ -19,20 +25,23 @@ public partial class LoginView : Window
         if (Validate.UserName(UsernameTextBox) && Validate.UserPassword(PasswordBox))
         {
             string username = UsernameTextBox.Text;
-            string password = PasswordBox.Text;
+            string password = PasswordBox.Password;
 
-            if (username == _configuration["loginUserName"] && password == _configuration["loginPassword"])
+            if (username == _configuration[LoginUserNameKey] && password == _configuration[LoginPasswordKey])
             {
-
                 _userManagementView = new UserManagementView();
                 _userManagementView.Show();
                 Close();
             }
-            else
-                MessageBox.Show("Login failed. Please check your credentials.");
+            else MessageBox.Show("Login failed. Please check your credentials.");
 
-            UsernameTextBox.Text = string.Empty;
-            PasswordBox.Text = string.Empty;
+            ClearInputs();
         }
+    }
+
+    private void ClearInputs()
+    {
+        UsernameTextBox.Text = string.Empty;
+        PasswordBox.Clear();
     }
 }

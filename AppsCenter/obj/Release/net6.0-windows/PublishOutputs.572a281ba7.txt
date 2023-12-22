@@ -1,5 +1,10 @@
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Images\obstacle.png
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Apps\ToDoApp\todo.json
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Videos\CarVideo.mp4
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Helpers\data.json
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.exe
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Apps\UserManagement\Data\DefaultUsers.json
+C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\Apps\UserManagement\Data\Users.json
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.dll
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.deps.json
 C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\bin\Release\net6.0-windows\publish\AppsCenter.runtimeconfig.json

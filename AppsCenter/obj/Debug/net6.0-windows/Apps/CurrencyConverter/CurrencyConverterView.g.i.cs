@@ -93,7 +93,7 @@ namespace AppsCenter.Apps.CurrencyConverter {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppsCenter;V1.0.0.0;component/apps/currencyconverter/currencyconverterview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppsCenter;component/apps/currencyconverter/currencyconverterview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Apps\CurrencyConverter\CurrencyConverterView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

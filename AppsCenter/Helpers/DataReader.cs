@@ -8,7 +8,8 @@ namespace AppsCenter.Helpers;
 
 public class DataReader
 {
-    private const string _jsonFilePath = @"C:\Users\morh\Desktop\C#Projects\AppsCenter\AppsCenter\Helpers\data.json";
+    static readonly string _relativePath = Path.Combine("Helpers", "data.json");
+    static readonly string _fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _relativePath);
 
     public static AppInfo GetAppByName(string appName)
     {
@@ -29,7 +30,7 @@ public class DataReader
     {
         try
         {
-            string jsonString = File.ReadAllText(_jsonFilePath);
+            string jsonString = File.ReadAllText(_fullPath);
             JsonSerializerOptions options = new()
             {
                 PropertyNameCaseInsensitive = true,

@@ -1,0 +1,32 @@
+[
+  {
+    "appTitle": "Calculator",
+    "appDescription": "A basic iPhone like calculator with standard arithmetic operations for quick and easy calculations.",
+    "technologies": "C#, WPF"
+  },
+  {
+    "appTitle": "Car Game",
+    "appDescription": "A cool car game where users can control a car and navigate through a virtual environment. The main goal is to prevent the car from colliding with obstacles. For each obstacle you avoid, you will earn 1 point. To move, press the Left Arrow/Right Arrow on keyboard.",
+    "technologies": "C#, WPF"
+  },
+  {
+    "appTitle": "Currency Converter",
+    "appDescription": "This app allows users to convert currencies with real-time exchange rates, providing a handy tool for financial calculations. Notice: The API is free up to 1000 requests.",
+    "technologies": "C#, WPF, Web API"
+  },
+  {
+    "appTitle": "To Do",
+    "appDescription": "A simple to-do list app that allows users to manage their tasks. The app provides features such as adding new tasks, updating task descriptions, marking tasks as complete, and removing tasks. Additionally, the app allows users to save their to-do list.",
+    "technologies": "C#, WPF, JSON"
+  },
+  {
+    "appTitle": "Tic Tac Toe",
+    "appDescription": "A classic game of Tic Tac Toe where users can play against an AI opponent - LET'S GO!'",
+    "technologies": "C#, WPF"
+  },
+  {
+    "appTitle": "User Management",
+    "appDescription": "This app requires users to log in. It provides user management features, allowing for user authentication and basic account functionalities (CRUD).",
+    "technologies": "C#, WPF, JSON"
+  }
+]

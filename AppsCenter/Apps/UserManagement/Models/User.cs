@@ -4,7 +4,7 @@ namespace AppsCenter.Apps.UserManagement.Models;
 
 public class User
 {
-    public static int Count;
+    private static int Count;
     public int Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
@@ -13,12 +13,11 @@ public class User
 
     public User(string name, string email)
     {
-        Random random = new Random();
+        Random random = new();
         Name = name;
         Email = email;
         Password = $"{random.Next(9999)}{Name}{Id}";
-        Count++;
-        Id = Count;
+        Id = ++Count;
         Created = DateTime.Now;
     }
 }

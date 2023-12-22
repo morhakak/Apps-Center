@@ -16,13 +16,13 @@
                 </Style>
                 </TextBox.Resources>
             </TextBox>
-            <TextBox Name="PasswordBox" Width="200" MaxLength="30" Margin="0,0,0,10" FontSize="20">
-                <TextBox.Resources>
+            <PasswordBox Name="PasswordBox" PasswordChar="*" Width="200" MaxLength="30" Margin="0,0,0,10" FontSize="20">
+                <PasswordBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property= "CornerRadius" Value="5"/>
                     </Style>
-                </TextBox.Resources>
-            </TextBox>
+                </PasswordBox.Resources>
+            </PasswordBox>
             <Button Content="Login" Click="LoginButton_Click" Width="100" HorizontalAlignment="Center" FontWeight="DemiBold" Background="#FF4DE679">
                 <Button.Resources>
                 <Style TargetType="Border">
