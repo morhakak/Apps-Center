@@ -9,8 +9,10 @@ namespace AppsCenter.Apps.ToDoApp.Models;
 public class ToDoListModel
 {
     public ObservableCollection<ToDoTask> ToDoTasks { get; set; }
-    static readonly string _jsonRelativePath = Path.Combine("Apps", "ToDoApp", "todo.json");
-    static readonly string _jsonFullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _jsonRelativePath);
+    static readonly string _folderName = "ToDoData";
+    static readonly string _jsonFileName = "todo.json";
+    static readonly string _jsonRelativePath = Path.Combine(_folderName, _jsonFileName);
+    static readonly string _jsonFullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AppsCenter", _jsonRelativePath);
     private readonly JsonTaskManager _jsonTaskManager;
 
     public ToDoListModel()

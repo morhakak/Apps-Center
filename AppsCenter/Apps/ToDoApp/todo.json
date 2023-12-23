@@ -1,1 +1,14 @@
-[{"Id":1,"Description":"Do home work","CreationTime":"2023-12-20T12:53:05.4811915+02:00","IsComplete":false},{"Id":2,"Description":"Do dishes","CreationTime":"2023-12-20T12:53:05.4811977+02:00","IsComplete":false},{"Id":6,"Description":"test123","CreationTime":"2023-12-20T12:53:05.4811996+02:00","IsComplete":true}]
+[
+  {
+    "Id": 1,
+    "Description": "Do home work",
+    "CreationTime": "2023-12-23T22:05:12.2157819+02:00",
+    "IsComplete": false
+  },
+  {
+    "Id": 2,
+    "Description": "Do dishes",
+    "CreationTime": "2023-12-23T22:05:12.2161005+02:00",
+    "IsComplete": false
+  }
+]

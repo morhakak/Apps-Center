@@ -77,12 +77,12 @@ public partial class AppsPresentationView : Window
 
         if (sender is Image img)
         {
-            img.Opacity = 0.5;
+            SetOpacity(img, 0.5);
         }
 
         if (sender is Label label)
         {
-            label.Opacity = 0.5;
+            SetOpacity(label, 0.5);
         }
     }
 
@@ -92,12 +92,17 @@ public partial class AppsPresentationView : Window
 
         if (sender is Image img)
         {
-            img.Opacity = 1;
+            SetOpacity(img, 1);
         }
 
         if (sender is Label label)
         {
-            label.Opacity = 1;
+            SetOpacity(label, 1);
         }
+    }
+
+    private static void SetOpacity(FrameworkElement control, double opacity)
+    {
+        control.Opacity = opacity;
     }
 }

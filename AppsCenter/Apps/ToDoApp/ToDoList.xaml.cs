@@ -70,9 +70,9 @@ public partial class ToDoList : Window
 
         ListBox listBox = FindParent<ListBox>(saveButton);
 
-        string listBoxname = listBox.Name;
+        string? listBoxName = listBox?.Name;
 
-        if (!string.IsNullOrWhiteSpace(listBoxname))
+        if (!string.IsNullOrWhiteSpace(listBoxName))
         {
             _todoList?.UpdateTask(task!.Id, description.Text);
         }
@@ -87,7 +87,7 @@ public partial class ToDoList : Window
             parent = VisualTreeHelper.GetParent(parent);
         }
 
-        return (T)parent;
+        return (T)parent!;
     }
 
     private void OnAddTask(object sender, RoutedEventArgs e)
@@ -105,11 +105,14 @@ public partial class ToDoList : Window
 
     private void OnToDoTaskDelete(object sender, RoutedEventArgs e)
     {
-        Button? Deletebutton = sender as Button;
-        StackPanel? stack = Deletebutton?.Parent as StackPanel;
+        Button? deleteButton = sender as Button;
+        StackPanel? stack = deleteButton?.Parent as StackPanel;
         TextBlock? description = stack?.FindName("txtTaskDescription") as TextBlock;
         ToDoTask? task = description?.DataContext as ToDoTask;
 
-        _todoList?.RemoveTodoTask(task);
+        if (task != null)
+        {
+            _todoList?.RemoveTodoTask(task);
+        }
     }
 }

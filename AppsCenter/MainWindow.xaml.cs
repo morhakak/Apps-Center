@@ -111,7 +111,19 @@ public partial class MainWindow : Window
     {
         _appPresentationView = new AppsPresentationView { Owner = this };
 
-        AppInfo appInfo = DataReader.GetAppByName(appName);
+        AppInfo? appInfo = DataReader.GetAppByName(appName);
+
+        if (appInfo == null)
+        {
+            MessageBox.Show("Error loading application data. Please try again later.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            appInfo = new AppInfo()
+            {
+                AppTitle = appName,
+                AppDescription = $"{appName} Description",
+                Technologies = string.Empty,
+            };
+        }
 
         _appPresentationView.OnStart(appInstance, appInfo, appImage);
         _appPresentationView.Show();

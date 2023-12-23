@@ -16,7 +16,7 @@ public partial class CarGameView : Window
     private readonly PlayerCar _playerCar;
     private readonly List<Obstacle> _obstacles;
     private readonly Random _random;
-    private int _carSpeed = 15;
+    private readonly int _carSpeed = 15;
     private int _score = 0;
     private DispatcherTimer? _timer;
     private readonly string videoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Videos", "CarVideo.mp4");
@@ -32,12 +32,17 @@ public partial class CarGameView : Window
         _obstacles = new List<Obstacle>();
         _random = new Random();
 
+        Subscribe();
+
+        score.Text = $"Score: {_score}";
+    }
+
+    private void Subscribe()
+    {
         Activated += StartGame;
         Closing += OnWindowClosing;
         Closed += OnWindowClosed;
         Loaded += OnWindowLoaded;
-
-        score.Text = $"Score: {_score}";
     }
 
     private void OnWindowLoaded(object sender, RoutedEventArgs e)
@@ -64,7 +69,7 @@ public partial class CarGameView : Window
         StopGameTimer();
     }
 
-    private void VisibilityCheckTimer_Tick(object sender, EventArgs e)
+    private void VisibilityCheckTimer_Tick(object? sender, EventArgs e)
     {
         CheckImageVisibility();
     }
@@ -130,7 +135,7 @@ public partial class CarGameView : Window
         }
     }
 
-    private void GameLoop(object sender, EventArgs e)
+    private void GameLoop(object? sender, EventArgs e)
     {
         _playerCar.Move();
 

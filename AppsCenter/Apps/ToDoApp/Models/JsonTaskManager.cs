@@ -12,6 +12,7 @@ namespace AppsCenter.Apps.ToDoApp.Models
         public JsonTaskManager(string filePath)
         {
             _filePath = filePath ?? throw new ArgumentNullException(nameof(filePath));
+            EnsureDirectoryExists();
         }
 
         public List<ToDoTask> LoadTasks()
@@ -36,7 +37,7 @@ namespace AppsCenter.Apps.ToDoApp.Models
         {
             try
             {
-                JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions
+                JsonSerializerOptions jsonSerializerOptions = new()
                 {
                     PropertyNameCaseInsensitive = true,
                     WriteIndented = true
@@ -48,6 +49,16 @@ namespace AppsCenter.Apps.ToDoApp.Models
             catch (Exception ex)
             {
                 Console.WriteLine($"Error saving tasks to {_filePath}: {ex.Message}");
+            }
+        }
+
+        private void EnsureDirectoryExists()
+        {
+            string directoryPath = Path.GetDirectoryName(_filePath);
+
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
             }
         }
     }

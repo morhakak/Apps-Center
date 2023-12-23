@@ -5,7 +5,7 @@ namespace CarGame;
 
 public class Obstacle : GameObject
 {
-    private int _direction;
+    private readonly int _direction;
 
     public Obstacle(int x, int y, int speed, Image carImage) : base(x, y, speed, carImage)
     {

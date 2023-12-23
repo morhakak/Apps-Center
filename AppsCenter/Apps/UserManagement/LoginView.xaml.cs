@@ -41,7 +41,7 @@ public partial class LoginView : Window
 
     private void ClearInputs()
     {
-        UsernameTextBox.Text = string.Empty;
+        UsernameTextBox.Clear();
         PasswordBox.Clear();
     }
 }

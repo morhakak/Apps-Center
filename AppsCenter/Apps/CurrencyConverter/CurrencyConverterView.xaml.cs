@@ -9,7 +9,7 @@ namespace AppsCenter.Apps.CurrencyConverter;
 
 public partial class CurrencyConverterView : Window
 {
-    private CurrencyService _currencyService;
+    private readonly CurrencyService _currencyService;
     private Dictionary<string, double> _exchangeRates;
 
     public CurrencyConverterView()
@@ -42,8 +42,7 @@ public partial class CurrencyConverterView : Window
             string? fromCurrency = FromCurrencyComboBox.SelectedItem?.ToString();
             string? toCurrency = ToCurrencyComboBox.SelectedItem?.ToString();
 
-            double amount;
-            if (string.IsNullOrEmpty(AmountTextBox.Text) || !double.TryParse(AmountTextBox.Text, out amount))
+            if (string.IsNullOrEmpty(AmountTextBox.Text) || !double.TryParse(AmountTextBox.Text, out double amount))
             {
                 MessageBox.Show("Please enter a valid amount!", "Invalid Amount", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;

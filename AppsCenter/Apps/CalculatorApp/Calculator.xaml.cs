@@ -5,10 +5,11 @@ namespace AppsCenter.Apps;
 
 public partial class Calculator : Window
 {
-    double _lastNumber;
-    double _result;
-    double _newNumber;
-    SelectedOperator _selectedOperator;
+    private const string ZeroAsString = "0";
+    private double _lastNumber;
+    private double _result;
+    private double _newNumber;
+    private SelectedOperator _selectedOperator;
 
     public Calculator()
     {
@@ -18,7 +19,7 @@ public partial class Calculator : Window
         negativeButton.Click += NegativeButton_Click;
         precentageButton.Click += PrecentageButton_Click;
     }
-    private void EqualButton_Click(object sender, RoutedEventArgs e)
+    private void EqualButton_Click(object? sender, RoutedEventArgs e)
     {
         if (double.TryParse(resultLabel.Content.ToString(), out _newNumber))
         {
@@ -42,7 +43,7 @@ public partial class Calculator : Window
         }
     }
 
-    private void PrecentageButton_Click(object sender, RoutedEventArgs e)
+    private void PrecentageButton_Click(object? sender, RoutedEventArgs e)
     {
         if (double.TryParse(resultLabel.Content.ToString(), out double temp))
         {
@@ -57,7 +58,7 @@ public partial class Calculator : Window
         }
     }
 
-    private void NegativeButton_Click(object sender, RoutedEventArgs e)
+    private void NegativeButton_Click(object? sender, RoutedEventArgs e)
     {
         if (double.TryParse(resultLabel.Content.ToString(), out _lastNumber))
         {
@@ -66,15 +67,15 @@ public partial class Calculator : Window
         }
     }
 
-    private void AcButton_Click(object sender, RoutedEventArgs e)
+    private void AcButton_Click(object? sender, RoutedEventArgs e)
     {
-        resultLabel.Content = "0";
+        resultLabel.Content = ZeroAsString;
         _lastNumber = 0;
         _newNumber = 0;
         _result = 0;
     }
 
-    private void NumberButton_Click(object sender, RoutedEventArgs e)
+    private void NumberButton_Click(object? sender, RoutedEventArgs e)
     {
         if (sender is not Button button) return;
 
@@ -83,14 +84,14 @@ public partial class Calculator : Window
 
         if (int.TryParse(content, out int selectedValue))
         {
-            resultLabel.Content = resultLabel.Content.ToString() == "0" ? selectedValue.ToString() : $"{resultLabel.Content}{selectedValue}";
+            resultLabel.Content = (resultLabel.Content.ToString() == ZeroAsString) ? selectedValue.ToString() : $"{resultLabel.Content}{selectedValue}";
         }
     }
 
-    private void OperationButton_Click(object sender, RoutedEventArgs e)
+    private void OperationButton_Click(object? sender, RoutedEventArgs e)
     {
         if (double.TryParse(resultLabel.Content.ToString(), out _lastNumber))
-            resultLabel.Content = "0";
+            resultLabel.Content = ZeroAsString;
 
         _selectedOperator = sender switch
         {
@@ -102,9 +103,9 @@ public partial class Calculator : Window
         };
     }
 
-    private void PointButton_Click(object sender, RoutedEventArgs e)
+    private void PointButton_Click(object? sender, RoutedEventArgs e)
     {
-        if (!resultLabel.Content.ToString()!.Contains("."))
+        if (!resultLabel.Content.ToString()!.Contains('.'))
             resultLabel.Content = $"{resultLabel.Content}.";
     }
 }
