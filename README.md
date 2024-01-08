@@ -25,9 +25,7 @@ Enjoy a game of Tic Tac Toe against an intelligent computer opponent. Test your 
 ### 3. User Management (Login Required)
 
 This app incorporates user management functionality, requiring users to log in. It adds a layer of security and personalization to your applications.
-**Valid credentials -
-Username: mor
-Password: Abcd1234!**
+Note: In order to login to the app - Add "secrets.json" file to your project and create two properties: "loginUserName" = "Your username", "loginPassword" = "Your password".
 
 ### 4. Calculator
 
@@ -36,6 +34,12 @@ A straightforward calculator app that performs basic arithmetic operations. It's
 ### 5. Currency Converter
 
 Convert currencies easily with the Currency Converter app. Stay updated on exchange rates and manage your finances efficiently.
+Follow these steps in order to use currency converter API:
+ 1. Navigate to: https://apilayer.com/marketplace/exchangerates_data-api.
+ 2. Register and create your own API key.
+ 3. Add "secrets.json" file to your project and create one property - "apiKey" = "Your API key" (Don't share your API key with others).
+
+Note: The API is free up to 1000 requests.
 
 ### 6. ToDo List
 
@@ -49,4 +53,4 @@ To run the "Apps Center" project on your machine, follow these steps:
 2. Open the solution in Visual Studio.
 3. Build and run the solution.
 
-Feel free to explore each app within the "Apps Center" and enjoy their unique features!
+Feel free to explore each app within the "Apps Center" and enjoy their features!
