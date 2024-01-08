@@ -33,8 +33,7 @@ A straightforward calculator app that performs basic arithmetic operations. It's
 
 ### 5. Currency Converter
 
-Convert currencies easily with the Currency Converter app. Stay updated on exchange rates and manage your finances efficiently.
-Follow these steps in order to use currency converter API:
+Convert currencies easily with the Currency Converter app. Stay updated on exchange rates and manage your finances efficiently.  Follow these steps in order to use currency converter API:
  1. Navigate to: https://apilayer.com/marketplace/exchangerates_data-api.
  2. Register and create your own API key.
  3. Add "secrets.json" file to your project and create one property - "apiKey" = "Your API key" (Don't share your API key with others).
